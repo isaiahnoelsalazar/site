@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class EasySQL:
     def createTable(self, dbname: str, table_name: str, columns: list):
         connection = sqlite3.connect(dbname + ".db")
@@ -28,7 +29,7 @@ class EasySQL:
         sql_query = sql_query[:-2] + ") VALUES ("
         for a in values:
             value: dict = a
-            sql_query += "'" + list(value.values())[0] + "', "
+            sql_query += "'" + str(list(value.values())[0]) + "', "
         sql_query = sql_query[:-2] + ")"
         connection.cursor().execute(sql_query)
         connection.commit()
@@ -44,6 +45,7 @@ class EasySQL:
         sql_query = "DROP TABLE " + table_name
         connection.cursor().execute(sql_query)
         connection.commit()
+
 
 '''
 How to use:
