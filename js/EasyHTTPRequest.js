@@ -3,7 +3,7 @@ class EasyHTTPRequest {
         this.url = url;
         this.method = method;
     }
-    send (userFunction){
+    run (userFunction){
         const request = new XMLHttpRequest();
         this.request = request;
         request.open(this.method, this.url);
