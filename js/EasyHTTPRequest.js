@@ -2,12 +2,11 @@ class EasyHTTPRequest {
     constructor (url, method){
         this.url = url;
         this.method = method;
+        this.request = new XMLHttpRequest();
     }
-    send (userFunction){
-        const request = new XMLHttpRequest();
-        this.request = request;
-        request.open(this.method, this.url);
-        request.onreadystatechange = userFunction;
-        request.send();
+    execute (userFunction){
+        this.request.open(this.method, this.url, true);
+        this.request.onreadystatechange = userFunction;
+        this.request.send();
     }
 }
