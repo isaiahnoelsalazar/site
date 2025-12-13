@@ -39,7 +39,13 @@ class EasySQL:
         sql_query = "DELETE FROM " + table_name + " WHERE " + list(columnValuePair.items())[0][0] + "='" + list(columnValuePair.items())[0][1] + "'"
         connection.cursor().execute(sql_query)
         connection.commit()
-
+    
+    def clearTable(self, dbname: str, table_name: str):
+        connection = sqlite3.connect(dbname + ".db")
+        sql_query = "DELETE FROM " + table_name
+        connection.cursor().execute(sql_query)
+        connection.commit()
+    
     def deleteTable(self, dbname: str, table_name: str):
         connection = sqlite3.connect(dbname + ".db")
         sql_query = "DROP TABLE " + table_name
