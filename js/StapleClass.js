@@ -19,4 +19,42 @@ function gridColumnRowAutoLayout(){
     });
 }
 
+function autoMargin(){
+    const potentialMatches = document.querySelectorAll('[class*="margin-"]');
+    const marginRegex = /margin-(\d+)/;
+    Array.from(potentialMatches).reduce((item, element) => {
+        const marginClass = Array.from(element.classList).find(elementClass => marginRegex.test(elementClass));
+        if (marginClass) {
+            const match = marginClass.match(marginRegex);
+            item.push({
+                element: element,
+                size: parseInt(match[1], 10)
+            });
+        }
+        return item;
+    }, []).forEach(item => {
+        item.element.style.margin = `${item.size}px`;
+    });
+}
+
+function autoPadding(){
+    const potentialMatches = document.querySelectorAll('[class*="padding-"]');
+    const paddingRegex = /padding-(\d+)/;
+    Array.from(potentialMatches).reduce((item, element) => {
+        const paddingClass = Array.from(element.classList).find(elementClass => paddingRegex.test(elementClass));
+        if (paddingClass) {
+            const match = paddingClass.match(paddingRegex);
+            item.push({
+                element: element,
+                size: parseInt(match[1], 10)
+            });
+        }
+        return item;
+    }, []).forEach(item => {
+        item.element.style.padding = `${item.size}px`;
+    });
+}
+
 gridColumnRowAutoLayout();
+autoMargin();
+autoPadding();
