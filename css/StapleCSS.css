@@ -1,5 +1,88 @@
+:root {
+    --slightdark-highlight: rgba(0, 0, 0, 0.25);
+    --dark-highlight: rgba(0, 0, 0, 0.5);
+    --verydark-highlight: rgba(0, 0, 0, 0.75);
+    --slightlight-highlight: rgba(255, 255, 255, 0.75);
+    --light-highlight: rgba(255, 255, 255, 0.5);
+    --verylight-highlight: rgba(255, 255, 255, 0.25);
+}
+.backgroundcolor-red {
+    background-color: red;
+}
+.backgroundcolor-blue {
+    background-color: blue;
+}
+.backgroundcolor-green {
+    background-color: green;
+}
+.backgroundcolor-cyan {
+    background-color: cyan;
+}
+.backgroundcolor-yellow {
+    background-color: yellow;
+}
+.backgroundcolor-orange {
+    background-color: orange;
+}
+.backgroundcolor-aqua {
+    background-color: aqua;
+}
+.backgroundcolor-purple {
+    background-color: purple;
+}
+.backgroundcolor-magenta {
+    background-color: magenta;
+}
+.backgroundcolor-violet {
+    background-color: violet;
+}
+.backgroundcolor-black {
+    background-color: black;
+}
+.backgroundcolor-white {
+    background-color: white;
+}
+.bottom-0 {
+    bottom: 0;
+}
 .boxsizing-borderbox {
     box-sizing: border-box;
+}
+.color-red {
+    color: red;
+}
+.color-blue {
+    color: blue;
+}
+.color-green {
+    color: green;
+}
+.color-cyan {
+    color: cyan;
+}
+.color-yellow {
+    color: yellow;
+}
+.color-orange {
+    color: orange;
+}
+.color-aqua {
+    color: aqua;
+}
+.color-purple {
+    color: purple;
+}
+.color-magenta {
+    color: magenta;
+}
+.color-violet {
+    color: violet;
+}
+.color-black {
+    color: black;
+}
+.color-white {
+    color: white;
 }
 .cursor-default {
     cursor: default;
@@ -34,6 +117,9 @@
 .position-relative {
     position: relative;
 }
+.right-0 {
+    right: 0;
+}
 .textalign-center {
     text-align: center;
 }
@@ -54,6 +140,90 @@
 }
 .width-0 {
     width: 0;
+}
+.height-veryveryverysmall {
+    height: 32px;
+}
+.height-veryveryminsmall {
+    height: 48px;
+}
+.height-veryverysmall {
+    height: 64px;
+}
+.height-verysmall {
+    height: 120px;
+}
+.height-minsmall {
+    height: 150px;
+}
+.height-small {
+    height: 240px;
+}
+.height-normal {
+    height: 360px;
+}
+.height-medium {
+    height: 480px;
+}
+.height-large {
+    height: 720px;
+}
+.height-minlarge {
+    height: 800px;
+}
+.height-verylarge {
+    height: 960px;
+}
+.height-veryverylarge {
+    height: 1000px;
+}
+.height-veryveryminlarge {
+    height: 1080px;
+}
+.height-veryveryverylarge {
+    height: 1200px;
+}
+.width-veryveryverysmall {
+    width: 32px;
+}
+.width-veryveryminsmall {
+    width: 48px;
+}
+.width-veryverysmall {
+    width: 64px;
+}
+.width-verysmall {
+    width: 120px;
+}
+.width-minsmall {
+    width: 150px;
+}
+.width-small {
+    width: 240px;
+}
+.width-normal {
+    width: 360px;
+}
+.width-medium {
+    width: 480px;
+}
+.width-large {
+    width: 720px;
+}
+.width-minlarge {
+    width: 800px;
+}
+.width-verylarge {
+    width: 960px;
+}
+.width-veryverylarge {
+    width: 1000px;
+}
+.width-veryveryminlarge {
+    width: 1080px;
+}
+.width-veryveryverylarge {
+    width: 1200px;
 }
 .height-0percent {
     height: 0%;
