@@ -163,6 +163,150 @@ class StapleClass {
             item.element.style.width = `${item.size}px`;
         });
     }
+
+    autoMarginLeft(){
+        const potentialMatches = document.querySelectorAll('[class*="marginleft-"]');
+        const marginleftRegex = /marginleft-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const marginleftClass = Array.from(element.classList).find(elementClass => marginleftRegex.test(elementClass));
+            if (marginleftClass) {
+                const match = marginleftClass.match(marginleftRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.marginLeft = `${item.size}px`;
+        });
+    }
+
+    autoPaddingLeft(){
+        const potentialMatches = document.querySelectorAll('[class*="paddingleft-"]');
+        const paddingleftRegex = /paddingleft-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const paddingleftClass = Array.from(element.classList).find(elementClass => paddingleftRegex.test(elementClass));
+            if (paddingleftClass) {
+                const match = paddingleftClass.match(paddingleftRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.paddingLeft = `${item.size}px`;
+        });
+    }
+
+    autoMarginRight(){
+        const potentialMatches = document.querySelectorAll('[class*="marginright-"]');
+        const marginrightRegex = /marginright-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const marginrightClass = Array.from(element.classList).find(elementClass => marginrightRegex.test(elementClass));
+            if (marginrightClass) {
+                const match = marginrightClass.match(marginrightRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.marginRight = `${item.size}px`;
+        });
+    }
+
+    autoPaddingRight(){
+        const potentialMatches = document.querySelectorAll('[class*="paddingright-"]');
+        const paddingrightRegex = /paddingright-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const paddingrightClass = Array.from(element.classList).find(elementClass => paddingrightRegex.test(elementClass));
+            if (paddingrightClass) {
+                const match = paddingrightClass.match(paddingrightRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.paddingRight = `${item.size}px`;
+        });
+    }
+
+    autoMarginTop(){
+        const potentialMatches = document.querySelectorAll('[class*="margintop-"]');
+        const margintopRegex = /margintop-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const margintopClass = Array.from(element.classList).find(elementClass => margintopRegex.test(elementClass));
+            if (margintopClass) {
+                const match = margintopClass.match(margintopRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.marginTop = `${item.size}px`;
+        });
+    }
+
+    autoPaddingTop(){
+        const potentialMatches = document.querySelectorAll('[class*="paddingtop-"]');
+        const paddingtopRegex = /paddingtop-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const paddingtopClass = Array.from(element.classList).find(elementClass => paddingtopRegex.test(elementClass));
+            if (paddingtopClass) {
+                const match = paddingtopClass.match(paddingtopRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.paddingTop = `${item.size}px`;
+        });
+    }
+
+    autoMarginBottom(){
+        const potentialMatches = document.querySelectorAll('[class*="marginbottom-"]');
+        const marginbottomRegex = /marginbottom-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const marginbottomClass = Array.from(element.classList).find(elementClass => marginbottomRegex.test(elementClass));
+            if (marginbottomClass) {
+                const match = marginbottomClass.match(marginbottomRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.marginBottom = `${item.size}px`;
+        });
+    }
+
+    autoPaddingBottom(){
+        const potentialMatches = document.querySelectorAll('[class*="paddingbottom-"]');
+        const paddingbottomRegex = /paddingbottom-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const paddingbottomClass = Array.from(element.classList).find(elementClass => paddingbottomRegex.test(elementClass));
+            if (paddingbottomClass) {
+                const match = paddingbottomClass.match(paddingbottomRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.paddingBottom = `${item.size}px`;
+        });
+    }
 }
 
 const init_StapleClass = new StapleClass();
@@ -175,3 +319,11 @@ init_StapleClass.autoHeight();
 init_StapleClass.autoMargin();
 init_StapleClass.autoPadding();
 init_StapleClass.autoWidth();
+init_StapleClass.autoMarginLeft();
+init_StapleClass.autoMarginRight();
+init_StapleClass.autoMarginTop();
+init_StapleClass.autoMarginBottom();
+init_StapleClass.autoPaddingLeft();
+init_StapleClass.autoPaddingRight();
+init_StapleClass.autoPaddingTop();
+init_StapleClass.autoPaddingBottom();
