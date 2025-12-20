@@ -18,7 +18,6 @@
 .backgroundcolor-violet { background-color: violet; }
 .backgroundcolor-black { background-color: black; }
 .backgroundcolor-white { background-color: white; }
-.bottom-0 { bottom: 0; }
 .boxsizing-borderbox { box-sizing: border-box; }
 .color-red { color: red; }
 .color-blue { color: blue; }
@@ -49,13 +48,12 @@
 .fontsize-xlarge { font-size: x-large; }
 .fontsize-xxlarge { font-size: xx-large; }
 .fontweight-bold { font-weight: bold; }
-.left-0 { left: 0; }
 .overflow-hidden { overflow: hidden; }
 .position-absolute { position: absolute; }
 .position-relative { position: relative; }
-.right-0 { right: 0; }
 .textalign-center { text-align: center; }
-.top-0 { top: 0; }
+.textalign-end { text-align: end; }
+.textalign-start { text-align: start; }
 .userselect-none { user-select: none; }
 .height-veryveryverysmall { height: 32px; }
 .height-veryveryminsmall { height: 48px; }
