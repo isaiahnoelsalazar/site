@@ -11,7 +11,6 @@ function gridColumnRowAutoLayout(){
                 n2: parseInt(match[2], 10)
             });
         }
-        
         return item;
     }, []).forEach(item => {
         item.element.style.display = 'grid';
@@ -19,3 +18,5 @@ function gridColumnRowAutoLayout(){
         item.element.style.gridTemplateRows = `repeat(${item.n2}, 1fr)`;
     });
 }
+
+gridColumnRowAutoLayout();
