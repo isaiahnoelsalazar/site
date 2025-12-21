@@ -1,4 +1,4 @@
-class StapleClass {
+class ECStyleSheet {
     gridColumnRowAutoLayout(){
         const potentialMatches = document.querySelectorAll('[class*="grid-"]');
         const gridRegex = /grid-(\d+)x(\d+)/;
@@ -307,23 +307,109 @@ class StapleClass {
             item.element.style.paddingBottom = `${item.size}px`;
         });
     }
+
+    autoColor(){
+        const potentialMatches = document.querySelectorAll('[class*="color-"]');
+        const colorRegex = /color-(\d+)-(\d+)-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const colorClass = Array.from(element.classList).find(elementClass => colorRegex.test(elementClass));
+            if (colorClass) {
+                const match = colorClass.match(colorRegex);
+                item.push({
+                    element: element,
+                    r: parseInt(match[1], 10),
+                    g: parseInt(match[2], 10),
+                    b: parseInt(match[3], 10),
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.color = `rgb(${item.r}, ${item.g}, ${item.b})`;
+        });
+    }
+
+    autoBackgroundColor(){
+        const potentialMatches = document.querySelectorAll('[class*="backgroundcolor-"]');
+        const backgroundColorRegex = /backgroundcolor-(\d+)-(\d+)-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const backgroundColorClass = Array.from(element.classList).find(elementClass => backgroundColorRegex.test(elementClass));
+            if (backgroundColorClass) {
+                const match = backgroundColorClass.match(backgroundColorRegex);
+                item.push({
+                    element: element,
+                    r: parseInt(match[1], 10),
+                    g: parseInt(match[2], 10),
+                    b: parseInt(match[3], 10),
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.backgroundColor = `rgb(${item.r}, ${item.g}, ${item.b})`;
+        });
+    }
+
+    autoColorAlpha(){
+        const potentialMatches = document.querySelectorAll('[class*="coloralpha-"]');
+        const colorAlphaRegex = /coloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const colorAlphaClass = Array.from(element.classList).find(elementClass => colorAlphaRegex.test(elementClass));
+            if (colorAlphaClass) {
+                const match = colorAlphaClass.match(colorAlphaRegex);
+                item.push({
+                    element: element,
+                    r: parseInt(match[1], 10),
+                    g: parseInt(match[2], 10),
+                    b: parseInt(match[3], 10),
+                    a: parseInt(match[4], 10),
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.color = `rgba(${item.r}, ${item.g}, ${item.b}, ${item.a})`;
+        });
+    }
+
+    autoBackgroundColorAlpha(){
+        const potentialMatches = document.querySelectorAll('[class*="backgroundcoloralpha-"]');
+        const backgroundColorAlphaRegex = /backgroundcoloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const backgroundColorAlphaClass = Array.from(element.classList).find(elementClass => backgroundColorAlphaRegex.test(elementClass));
+            if (backgroundColorAlphaClass) {
+                const match = backgroundColorAlphaClass.match(backgroundColorAlphaRegex);
+                item.push({
+                    element: element,
+                    r: parseInt(match[1], 10),
+                    g: parseInt(match[2], 10),
+                    b: parseInt(match[3], 10),
+                    a: parseInt(match[4], 10),
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.backgroundColor = `rgba(${item.r}, ${item.g}, ${item.b}, ${item.a})`;
+        });
+    }
 }
 
-const init_StapleClass = new StapleClass();
-init_StapleClass.gridColumnRowAutoLayout();
-init_StapleClass.autoBottom();
-init_StapleClass.autoLeft();
-init_StapleClass.autoRight();
-init_StapleClass.autoTop();
-init_StapleClass.autoHeight();
-init_StapleClass.autoMargin();
-init_StapleClass.autoPadding();
-init_StapleClass.autoWidth();
-init_StapleClass.autoMarginLeft();
-init_StapleClass.autoMarginRight();
-init_StapleClass.autoMarginTop();
-init_StapleClass.autoMarginBottom();
-init_StapleClass.autoPaddingLeft();
-init_StapleClass.autoPaddingRight();
-init_StapleClass.autoPaddingTop();
-init_StapleClass.autoPaddingBottom();
+const init_ECStyleSheet = new ECStyleSheet();
+init_ECStyleSheet.gridColumnRowAutoLayout();
+init_ECStyleSheet.autoBottom();
+init_ECStyleSheet.autoLeft();
+init_ECStyleSheet.autoRight();
+init_ECStyleSheet.autoTop();
+init_ECStyleSheet.autoHeight();
+init_ECStyleSheet.autoMargin();
+init_ECStyleSheet.autoPadding();
+init_ECStyleSheet.autoWidth();
+init_ECStyleSheet.autoMarginLeft();
+init_ECStyleSheet.autoMarginRight();
+init_ECStyleSheet.autoMarginTop();
+init_ECStyleSheet.autoMarginBottom();
+init_ECStyleSheet.autoPaddingLeft();
+init_ECStyleSheet.autoPaddingRight();
+init_ECStyleSheet.autoPaddingTop();
+init_ECStyleSheet.autoPaddingBottom();
+init_ECStyleSheet.autoColor();
+init_ECStyleSheet.autoBackgroundColor();
+init_ECStyleSheet.autoColorAlpha();
+init_ECStyleSheet.autoBackgroundColorAlpha();
