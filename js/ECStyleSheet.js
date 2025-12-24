@@ -540,7 +540,7 @@ class ECStyleSheet {
         });
     }
 
-    autoCurveVerticalListItemCorners(){
+    autoFixedCurveVerticalListItemCorners(){
         const potentialMatches = document.querySelectorAll('[class*="list-vertical-curved-fix-"]');
         const listVerticalRegex = /list-vertical-curved-fix-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
@@ -562,7 +562,7 @@ class ECStyleSheet {
         });
     }
 
-    autoCurveHorizontalListItemCorners(){
+    autoFixedCurveHorizontalListItemCorners(){
         const potentialMatches = document.querySelectorAll('[class*="list-horizontal-curved-fix-"]');
         const listHorizontalRegex = /list-horizontal-curved-fix-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
@@ -589,6 +589,8 @@ const init_ECStyleSheet = new ECStyleSheet();
 init_ECStyleSheet.gridColumnRowAutoLayout();
 init_ECStyleSheet.autoCurveVerticalListItemCorners();
 init_ECStyleSheet.autoCurveHorizontalListItemCorners();
+init_ECStyleSheet.autoFixedCurveVerticalListItemCorners();
+init_ECStyleSheet.autoFixedCurveHorizontalListItemCorners();
 init_ECStyleSheet.autoBottom();
 init_ECStyleSheet.autoLeft();
 init_ECStyleSheet.autoRight();
