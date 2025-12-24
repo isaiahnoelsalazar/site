@@ -308,13 +308,13 @@ class ECStyleSheet {
         });
     }
 
-    autoColor(){
-        const potentialMatches = document.querySelectorAll('[class*="color-"]');
-        const colorRegex = /color-(\d+)-(\d+)-(\d+)/;
+    autoTextColor(){
+        const potentialMatches = document.querySelectorAll('[class*="textcolor-"]');
+        const textColorRegex = /textcolor-(\d+)-(\d+)-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
-            const colorClass = Array.from(element.classList).find(elementClass => colorRegex.test(elementClass));
-            if (colorClass) {
-                const match = colorClass.match(colorRegex);
+            const textColorClass = Array.from(element.classList).find(elementClass => textColorRegex.test(elementClass));
+            if (textColorClass) {
+                const match = textColorClass.match(textColorRegex);
                 item.push({
                     element: element,
                     r: parseInt(match[1], 10),
@@ -348,13 +348,13 @@ class ECStyleSheet {
         });
     }
 
-    autoColorAlpha(){
-        const potentialMatches = document.querySelectorAll('[class*="coloralpha-"]');
-        const colorAlphaRegex = /coloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
+    autoTextColorAlpha(){
+        const potentialMatches = document.querySelectorAll('[class*="textcoloralpha-"]');
+        const textColorAlphaRegex = /textcoloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
-            const colorAlphaClass = Array.from(element.classList).find(elementClass => colorAlphaRegex.test(elementClass));
-            if (colorAlphaClass) {
-                const match = colorAlphaClass.match(colorAlphaRegex);
+            const textColorAlphaClass = Array.from(element.classList).find(elementClass => textColorAlphaRegex.test(elementClass));
+            if (textColorAlphaClass) {
+                const match = textColorAlphaClass.match(textColorAlphaRegex);
                 item.push({
                     element: element,
                     r: parseInt(match[1], 10),
