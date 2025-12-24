@@ -408,6 +408,78 @@ class ECStyleSheet {
         });
     }
 
+    autoBorderRadiusTopLeft(){
+        const potentialMatches = document.querySelectorAll('[class*="borderradiustopleft-"]');
+        const borderRadiusRegex = /borderradiustopleft-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const borderRadiusClass = Array.from(element.classList).find(elementClass => borderRadiusRegex.test(elementClass));
+            if (borderRadiusClass) {
+                const match = borderRadiusClass.match(borderRadiusRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.borderTopLeftRadius = `${item.size}px`;
+        });
+    }
+
+    autoBorderRadiusTopRight(){
+        const potentialMatches = document.querySelectorAll('[class*="borderradiustopright-"]');
+        const borderRadiusRegex = /borderradiustopright-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const borderRadiusClass = Array.from(element.classList).find(elementClass => borderRadiusRegex.test(elementClass));
+            if (borderRadiusClass) {
+                const match = borderRadiusClass.match(borderRadiusRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.borderTopRightRadius = `${item.size}px`;
+        });
+    }
+
+    autoBorderRadiusBottomLeft(){
+        const potentialMatches = document.querySelectorAll('[class*="borderradiusbottomleft-"]');
+        const borderRadiusRegex = /borderradiusbottomleft-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const borderRadiusClass = Array.from(element.classList).find(elementClass => borderRadiusRegex.test(elementClass));
+            if (borderRadiusClass) {
+                const match = borderRadiusClass.match(borderRadiusRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.borderBottomLeftRadius = `${item.size}px`;
+        });
+    }
+
+    autoBorderRadiusBottomRight(){
+        const potentialMatches = document.querySelectorAll('[class*="borderradiusbottomright-"]');
+        const borderRadiusRegex = /borderradiusbottomright-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const borderRadiusClass = Array.from(element.classList).find(elementClass => borderRadiusRegex.test(elementClass));
+            if (borderRadiusClass) {
+                const match = borderRadiusClass.match(borderRadiusRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.borderBottomRightRadius = `${item.size}px`;
+        });
+    }
+
     autoCurveVerticalListItemCorners(){
         const potentialMatches = document.querySelectorAll('[class*="list-vertical-curved-"]');
         const listVerticalRegex = /list-vertical-curved-(\d+)/;
@@ -423,7 +495,15 @@ class ECStyleSheet {
             return item;
         }, []).forEach(item => {
             for (const child of item.element.children){
-                child.classList.add(`borderradius-${item.size}`);
+                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
+                if (child == item.element.children[0]){
+                    child.classList.add(`borderradiustopleft-${item.size}`);
+                    child.classList.add(`borderradiustopright-${item.size}`);
+                }
+                if (child == item.element.children[item.element.children.length - 1]){
+                    child.classList.add(`borderradiusbottomleft-${item.size}`);
+                    child.classList.add(`borderradiusbottomright-${item.size}`);
+                }
             }
         });
     }
@@ -443,7 +523,15 @@ class ECStyleSheet {
             return item;
         }, []).forEach(item => {
             for (const child of item.element.children){
-                child.classList.add(`borderradius-${item.size}`);
+                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
+                if (child == item.element.children[0]){
+                    child.classList.add(`borderradiustopleft-${item.size}`);
+                    child.classList.add(`borderradiustopright-${item.size}`);
+                }
+                if (child == item.element.children[item.element.children.length - 1]){
+                    child.classList.add(`borderradiusbottomleft-${item.size}`);
+                    child.classList.add(`borderradiusbottomright-${item.size}`);
+                }
             }
         });
     }
@@ -474,3 +562,7 @@ init_ECStyleSheet.autoBackgroundColor();
 init_ECStyleSheet.autoTextColorAlpha();
 init_ECStyleSheet.autoBackgroundColorAlpha();
 init_ECStyleSheet.autoBorderRadius();
+init_ECStyleSheet.autoBorderRadiusTopLeft();
+init_ECStyleSheet.autoBorderRadiusTopRight();
+init_ECStyleSheet.autoBorderRadiusBottomLeft();
+init_ECStyleSheet.autoBorderRadiusBottomRight();
