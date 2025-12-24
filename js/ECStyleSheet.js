@@ -389,6 +389,24 @@ class ECStyleSheet {
             item.element.style.backgroundColor = `rgba(${item.r}, ${item.g}, ${item.b}, ${item.a})`;
         });
     }
+
+    autoBorderRadius(){
+        const potentialMatches = document.querySelectorAll('[class*="borderradius-"]');
+        const borderRadiusRegex = /borderradius-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const borderRadiusClass = Array.from(element.classList).find(elementClass => borderRadiusRegex.test(elementClass));
+            if (borderRadiusClass) {
+                const match = borderRadiusClass.match(borderRadiusRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.borderRadius = `${item.size}px`;
+        });
+    }
 }
 
 const init_ECStyleSheet = new ECStyleSheet();
@@ -413,3 +431,4 @@ init_ECStyleSheet.autoColor();
 init_ECStyleSheet.autoBackgroundColor();
 init_ECStyleSheet.autoColorAlpha();
 init_ECStyleSheet.autoBackgroundColorAlpha();
+init_ECStyleSheet.autoBorderRadius();

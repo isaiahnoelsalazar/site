@@ -77,6 +77,14 @@
 .fontsize-xlarge { font-size: x-large; }
 .fontsize-xxlarge { font-size: xx-large; }
 .fontweight-bold { font-weight: bold; }
+.list-vertical {
+    display: flex;
+    flex-direction: column;
+}
+.list-horizontal {
+    display: flex;
+    flex-direction: row;
+}
 .overflow-hidden { overflow: hidden; }
 .position-absolute { position: absolute; }
 .position-relative { position: relative; }
