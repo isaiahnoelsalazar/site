@@ -494,6 +494,8 @@ class ECStyleSheet {
             }
             return item;
         }, []).forEach(item => {
+            item.element.style.display = "flex";
+            item.element.style.flexDirection = "column";
             for (const child of item.element.children){
                 child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
                 if (child == item.element.children[0]){
@@ -522,6 +524,8 @@ class ECStyleSheet {
             }
             return item;
         }, []).forEach(item => {
+            item.element.style.display = "flex";
+            item.element.style.flexDirection = "row";
             for (const child of item.element.children){
                 child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
                 if (child == item.element.children[0]){
@@ -532,6 +536,50 @@ class ECStyleSheet {
                     child.classList.add(`borderradiusbottomleft-${item.size}`);
                     child.classList.add(`borderradiusbottomright-${item.size}`);
                 }
+            }
+        });
+    }
+
+    autoCurveVerticalListItemCorners(){
+        const potentialMatches = document.querySelectorAll('[class*="list-vertical-curved-fix-"]');
+        const listVerticalRegex = /list-vertical-curved-fix-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const listVerticalClass = Array.from(element.classList).find(elementClass => listVerticalRegex.test(elementClass));
+            if (listVerticalClass) {
+                const match = listVerticalClass.match(listVerticalRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.display = "flex";
+            item.element.style.flexDirection = "column";
+            for (const child of item.element.children){
+                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
+            }
+        });
+    }
+
+    autoCurveHorizontalListItemCorners(){
+        const potentialMatches = document.querySelectorAll('[class*="list-horizontal-curved-fix-"]');
+        const listHorizontalRegex = /list-horizontal-curved-fix-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const listHorizontalClass = Array.from(element.classList).find(elementClass => listHorizontalRegex.test(elementClass));
+            if (listHorizontalClass) {
+                const match = listHorizontalClass.match(listHorizontalRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.element.style.display = "flex";
+            item.element.style.flexDirection = "row";
+            for (const child of item.element.children){
+                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
             }
         });
     }
