@@ -423,7 +423,7 @@ class ECStyleSheet {
             return item;
         }, []).forEach(item => {
             for (const child of item.children){
-                child.style.classList.add(`borderradius-${item.size}`);
+                child.classList.add(`borderradius-${item.size}`);
             }
         });
     }
@@ -443,7 +443,7 @@ class ECStyleSheet {
             return item;
         }, []).forEach(item => {
             for (const child of item.children){
-                child.style.classList.add(`borderradius-${item.size}`);
+                child.classList.add(`borderradius-${item.size}`);
             }
         });
     }
@@ -451,6 +451,8 @@ class ECStyleSheet {
 
 const init_ECStyleSheet = new ECStyleSheet();
 init_ECStyleSheet.gridColumnRowAutoLayout();
+init_ECStyleSheet.autoCurveVerticalListItemCorners();
+init_ECStyleSheet.autoCurveHorizontalListItemCorners();
 init_ECStyleSheet.autoBottom();
 init_ECStyleSheet.autoLeft();
 init_ECStyleSheet.autoRight();
@@ -472,5 +474,3 @@ init_ECStyleSheet.autoBackgroundColor();
 init_ECStyleSheet.autoTextColorAlpha();
 init_ECStyleSheet.autoBackgroundColorAlpha();
 init_ECStyleSheet.autoBorderRadius();
-init_ECStyleSheet.autoCurveVerticalListItemCorners();
-init_ECStyleSheet.autoCurveHorizontalListItemCorners();
