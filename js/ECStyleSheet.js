@@ -422,9 +422,9 @@ class ECStyleSheet {
             }
             return item;
         }, []).forEach(item => {
-            item.children.forEach(child => {
+            for (const child of item.children){
                 child.style.classList.add(`borderradius-${item.size}`);
-            });
+            }
         });
     }
 
@@ -442,9 +442,9 @@ class ECStyleSheet {
             }
             return item;
         }, []).forEach(item => {
-            item.children.forEach(child => {
+            for (const child of item.children){
                 child.style.classList.add(`borderradius-${item.size}`);
-            });
+            }
         });
     }
 }
