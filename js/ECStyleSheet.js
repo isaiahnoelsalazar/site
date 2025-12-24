@@ -407,6 +407,46 @@ class ECStyleSheet {
             item.element.style.borderRadius = `${item.size}px`;
         });
     }
+
+    autoCurveVerticalListItemCorners(){
+        const potentialMatches = document.querySelectorAll('[class*="list-vertical-curved-"]');
+        const listVerticalRegex = /list-vertical-curved-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const listVerticalClass = Array.from(element.classList).find(elementClass => listVerticalRegex.test(elementClass));
+            if (listVerticalClass) {
+                const match = listVerticalClass.match(listVerticalRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.children.forEach(child => {
+                child.style.classList.add(`borderradius-${item.size}`);
+            });
+        });
+    }
+
+    autoCurveHorizontalListItemCorners(){
+        const potentialMatches = document.querySelectorAll('[class*="list-horizontal-curved-"]');
+        const listHorizontalRegex = /list-horizontal-curved-(\d+)/;
+        Array.from(potentialMatches).reduce((item, element) => {
+            const listHorizontalClass = Array.from(element.classList).find(elementClass => listHorizontalRegex.test(elementClass));
+            if (listHorizontalClass) {
+                const match = listHorizontalClass.match(listHorizontalRegex);
+                item.push({
+                    element: element,
+                    size: parseInt(match[1], 10)
+                });
+            }
+            return item;
+        }, []).forEach(item => {
+            item.children.forEach(child => {
+                child.style.classList.add(`borderradius-${item.size}`);
+            });
+        });
+    }
 }
 
 const init_ECStyleSheet = new ECStyleSheet();
@@ -432,3 +472,5 @@ init_ECStyleSheet.autoBackgroundColor();
 init_ECStyleSheet.autoTextColorAlpha();
 init_ECStyleSheet.autoBackgroundColorAlpha();
 init_ECStyleSheet.autoBorderRadius();
+init_ECStyleSheet.autoCurveVerticalListItemCorners();
+init_ECStyleSheet.autoCurveHorizontalListItemCorners();
