@@ -530,10 +530,10 @@ class ECStyleSheet {
                 child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
                 if (child == item.element.children[0]){
                     child.classList.add(`borderradiustopleft-${item.size}`);
-                    child.classList.add(`borderradiustopright-${item.size}`);
+                    child.classList.add(`borderradiusbottomleft-${item.size}`);
                 }
                 if (child == item.element.children[item.element.children.length - 1]){
-                    child.classList.add(`borderradiusbottomleft-${item.size}`);
+                    child.classList.add(`borderradiustopright-${item.size}`);
                     child.classList.add(`borderradiusbottomright-${item.size}`);
                 }
             }
@@ -557,7 +557,7 @@ class ECStyleSheet {
             item.element.style.display = "flex";
             item.element.style.flexDirection = "column";
             for (const child of item.element.children){
-                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
+                child.classList.add(`borderradius-${item.size}`);
             }
         });
     }
@@ -579,7 +579,7 @@ class ECStyleSheet {
             item.element.style.display = "flex";
             item.element.style.flexDirection = "row";
             for (const child of item.element.children){
-                child.classList.add(`borderradius-${Math.round(item.size / 2)}`);
+                child.classList.add(`borderradius-${item.size}`);
             }
         });
     }
