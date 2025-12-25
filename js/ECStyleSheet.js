@@ -349,8 +349,8 @@ class ECStyleSheet {
     }
 
     autoTextColorAlpha(){
-        const potentialMatches = document.querySelectorAll('[class*="textcoloralpha-"]');
-        const textColorAlphaRegex = /textcoloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
+        const potentialMatches = document.querySelectorAll('[class*="alphatextcolor-"]');
+        const textColorAlphaRegex = /alphatextcolor-(\d+)-(\d+)-(\d+)-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
             const textColorAlphaClass = Array.from(element.classList).find(elementClass => textColorAlphaRegex.test(elementClass));
             if (textColorAlphaClass) {
@@ -370,8 +370,8 @@ class ECStyleSheet {
     }
 
     autoBackgroundColorAlpha(){
-        const potentialMatches = document.querySelectorAll('[class*="backgroundcoloralpha-"]');
-        const backgroundColorAlphaRegex = /backgroundcoloralpha-(\d+)-(\d+)-(\d+)-(\d+)/;
+        const potentialMatches = document.querySelectorAll('[class*="alphabackgroundcolor-"]');
+        const backgroundColorAlphaRegex = /alphabackgroundcolor-(\d+)-(\d+)-(\d+)-(\d+)/;
         Array.from(potentialMatches).reduce((item, element) => {
             const backgroundColorAlphaClass = Array.from(element.classList).find(elementClass => backgroundColorAlphaRegex.test(elementClass));
             if (backgroundColorAlphaClass) {
